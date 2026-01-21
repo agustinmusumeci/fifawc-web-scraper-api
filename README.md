@@ -54,7 +54,7 @@ npm start
 /groups?groups=A,b,C...
 ```
 
-- Get all matches schedule as well as the teams that participate in that match
+- Get all matches schedule as well as the teams that participate in that match and filter by date with the format DD/MM/YYYY
 
 ```console
 /matches

@@ -34,19 +34,27 @@ npm start
 
 ### Endpoints
 
-- Get all teams that clasified
+- Get all teams that clasified or filter by its full name
 
 ```console
 /teams
 ```
 
-- Get all groups formed
+```console
+/teams?names=USA,mexico,CANADA...
+```
+
+- Get all groups formed or filter by its letter
 
 ```console
 /groups
 ```
 
-- Get all matches schedule as well as the teams
+```console
+/groups?groups=A,b,C...
+```
+
+- Get all matches schedule as well as the teams that participate in that match
 
 ```console
 /matches

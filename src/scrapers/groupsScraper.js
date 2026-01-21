@@ -15,7 +15,7 @@ export default class GroupsScraper extends Scraper {
 
           const rows = Array.from(table.querySelectorAll("tbody tr"));
 
-          if (!groupsNames.includes(groupName) && groupsNames.length > 0) return;
+          if (!groupsNames.includes(groupName.split(" ").at(1).toLowerCase()) && groupsNames.length > 0) return;
 
           const teams = rows.map((row) => {
             const cells = row.querySelectorAll("td");

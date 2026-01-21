@@ -5,7 +5,9 @@ export const matchesRouter = Router();
 
 matchesRouter.get("/", async (req, res) => {
   try {
-    const matches = await matchesController.getMatches();
+    const matchesDates = req?.query?.dates ?? [];
+
+    const matches = await matchesController.getMatches(matchesDates);
 
     return res.status(200).json({ message: "FIFA 2026 World Cup Matches", data: matches, success: true });
   } catch (e) {

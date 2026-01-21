@@ -1,7 +1,7 @@
 import express from "express";
-import { groupsRouter } from "./routes/groupsRoutes.js";
-import { matchesRouter } from "./routes/matchesRoutes.js";
-import { teamsRouter } from "./routes/teamsRoutes.js";
+import { groupsRouter } from "./routes/groupsRouter.js";
+import { matchesRouter } from "./routes/matchesRouter.js";
+import { teamsRouter } from "./routes/teamsRouter.js";
 
 const app = express();
 const PORT = 4000;

@@ -1,8 +1,8 @@
 import groupsRepository from "../repositories/groupsRepository.js";
 
 class GroupsController {
-  async getGroups() {
-    const groups = await groupsRepository.getGroups();
+  async getGroups(groupsNames) {
+    const groups = await groupsRepository.getGroups(groupsNames);
 
     return groups;
   }

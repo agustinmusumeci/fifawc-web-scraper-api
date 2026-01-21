@@ -1,8 +1,8 @@
 import teamsRepository from "../repositories/teamsRepository.js";
 
 class TeamsController {
-  async getTeams() {
-    const teams = await teamsRepository.getTeams();
+  async getTeams(teamsNames) {
+    const teams = await teamsRepository.getTeams(teamsNames);
 
     return teams;
   }

@@ -1,8 +1,8 @@
-import teamsRepository from "../repositories/teamsRepository.js";
+import matchesRepository from "../repositories/matchesRepository.js";
 
 class MatchesControllers {
-  async getMatches(params) {
-    const matches = await teamsRepository.getTeams();
+  async getMatches(matchesDates) {
+    const matches = await matchesRepository.getMatches(matchesDates);
 
     return matches;
   }

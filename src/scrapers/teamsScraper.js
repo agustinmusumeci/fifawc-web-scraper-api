@@ -15,7 +15,7 @@ export default class TeamsScraper extends Scraper {
 
           const name = team.querySelector(".team-card_teamName__-2Ckj span.d-none.d-md-block")?.innerText ?? team.querySelector(".team-card_teamName__-2Ckj span")?.innerText ?? "Unknown team";
 
-          if (!teamsNames.includes(name) && teamsNames.length > 0) return;
+          if (!teamsNames.includes(name?.toLowerCase()) && teamsNames.length > 0) return;
 
           const flag = team.querySelector("img.team-card_teamFlag__XTFGY")?.getAttribute("src") ?? "No flag";
 

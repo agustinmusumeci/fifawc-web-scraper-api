@@ -3,8 +3,7 @@ import { groupsRouter } from "./routes/groupsRouter.js";
 import { matchesRouter } from "./routes/matchesRouter.js";
 import { teamsRouter } from "./routes/teamsRouter.js";
 
-const app = express();
-const PORT = 4000;
+export const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -18,7 +17,3 @@ app.get("/", (req, res) => {
 app.use("/groups", groupsRouter);
 app.use("/matches", matchesRouter);
 app.use("/teams", teamsRouter);
-
-app.listen(PORT, () => {
-  console.log(`Listening to port http://localhost:${PORT} 🏆`);
-});

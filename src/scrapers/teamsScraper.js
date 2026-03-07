@@ -33,9 +33,9 @@ export default class TeamsScraper extends Scraper {
             name: name,
             link: link,
             flag: flag,
-            isHost: isHost,
+            is_host: isHost,
             group: group,
-            worldRanking: worldRanking,
+            world_ranking: worldRanking,
             appearances: appearances,
           });
         });

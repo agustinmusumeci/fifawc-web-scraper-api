@@ -24,8 +24,7 @@ export default class GroupsScraper extends Scraper {
 
             const teamName = row.querySelector(".table-team-name_teamName__lgiBj > span")?.innerText.trim() ?? row.querySelector(".table-team-name_teamName__lgiBj span")?.innerText.trim() ?? null;
 
-            const shortTeamName =
-              row.querySelector(".table-team-name_teamName__lgiBj > span:nth-child(2)")?.innerText.trim() ?? row.querySelector(".table-team-name_teamName__lgiBj span")?.innerText.trim() ?? null;
+            const shortTeamName = row.querySelector(".team-abbreviations_container__wWtDG")?.innerText.trim() ?? row.querySelector(".table-team-name_teamName__lgiBj span")?.innerText.trim() ?? null;
             const flag = row.querySelector(".image_img__pNjkh")?.getAttribute("src") ?? "No flag";
             const played = Number(cells[3].innerText.trim());
             const wins = Number(cells[4].innerText.trim());
@@ -41,7 +40,7 @@ export default class GroupsScraper extends Scraper {
             return {
               position,
               team: teamName,
-              shortTeamName: shortTeamName,
+              short_team_name: shortTeamName,
               flag: flag,
               played,
               wins,

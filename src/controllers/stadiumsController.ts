@@ -15,7 +15,6 @@ class StadiumsControllers {
       }
     });
 
-    console.log(nonRepeatingStadiums);
     return nonRepeatingStadiums;
   }
 }

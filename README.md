@@ -126,6 +126,12 @@ npm start
 /groups?dates=11/06/2026,12/06/2026...
 ```
 
+- Get all stadiums
+
+```console
+/stadiums
+```
+
 </div>
 
 <!-- Author links -->

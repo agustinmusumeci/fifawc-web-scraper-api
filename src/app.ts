@@ -3,6 +3,7 @@ import type { Request, Response } from "express";
 import { groupsRouter } from "./routes/groupsRouter.js";
 import { matchesRouter } from "./routes/matchesRouter.js";
 import { teamsRouter } from "./routes/teamsRouter.js";
+import { stadiumRouter } from "./routes/stadiumsRouter.js";
 
 export const app: express.Application = express();
 
@@ -18,3 +19,4 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/groups", groupsRouter);
 app.use("/matches", matchesRouter);
 app.use("/teams", teamsRouter);
+app.use("/stadiums", stadiumRouter);

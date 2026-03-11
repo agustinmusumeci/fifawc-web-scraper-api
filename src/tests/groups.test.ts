@@ -15,7 +15,7 @@ describe("Test the groups path", () => {
             expect.objectContaining({
               position: expect.any(Number),
               team: expect.any(String),
-              shortTeamName: expect.any(String),
+              short_team_name: expect.any(String),
               flag: expect.any(String),
               played: expect.any(Number),
               wins: expect.any(Number),

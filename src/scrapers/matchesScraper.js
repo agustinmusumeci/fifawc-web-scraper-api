@@ -79,6 +79,7 @@ export default class MatchesScraper extends Scraper {
       stage: el?.StageName?.at(0)?.Description,
       group: el?.GroupName?.at(0)?.Description ?? "No group",
       stadium: el?.Stadium?.Name?.at(0)?.Description,
+      link: `https://www.fifa.com/en/match-centre/match/${el?.IdCompetition}/${el?.IdSeason}/${el?.IdStage}/${el?.IdMatch}`,
       teams: [
         {
           name: el?.Home?.Abbreviation ?? el?.PlaceHolderA,

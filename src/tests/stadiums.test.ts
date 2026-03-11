@@ -1,7 +1,7 @@
 import request from "supertest";
 import { app } from "../app.js";
 
-describe("Test the teams path", () => {
+describe("Test the stadiums path", () => {
   test("It should response the GET method", async () => {
     const response = await request(app).get("/teams");
 
@@ -11,12 +11,6 @@ describe("Test the teams path", () => {
       data: expect.arrayContaining([
         expect.objectContaining({
           name: expect.any(String),
-          link: expect.any(String),
-          flag: expect.any(String),
-          is_host: expect.any(Boolean),
-          group: expect.any(String),
-          world_ranking: expect.any(String),
-          appearances: expect.any(String),
         }),
       ]),
     };

@@ -11,7 +11,6 @@ class StadiumsRepository {
       "api.fifa.com/api/v3/calendar/matches",
     );
 
-    console.log(matchesData);
     const stadiums = matchesData.map((match: any) => ({
       stadium: match?.stadium,
     }));

@@ -10,14 +10,17 @@ describe("Test the matches path", () => {
       success: true,
       data: expect.arrayContaining([
         expect.objectContaining({
+          fifa_match_id: expect.any(Number),
           date: expect.any(String),
           teams: expect.arrayContaining([
             expect.objectContaining({
-              team: expect.any(String),
+              name: expect.any(String),
+              short_name: expect.any(String),
+              goals: expect.any(Number),
             }),
           ]),
-          time: expect.any(String),
           stage: expect.any(String),
+          group: expect.any(String),
           stadium: expect.any(String),
           link: expect.any(String),
         }),

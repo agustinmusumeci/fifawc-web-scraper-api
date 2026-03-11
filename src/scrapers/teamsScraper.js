@@ -23,7 +23,7 @@ export default class TeamsScraper extends Scraper {
 
           const rows = team.querySelectorAll(".team-card-body-row_cardBodyRow__y2PQ1");
 
-          const group = rows[0]?.querySelector(".team-card-body-row_right__s9t1g")?.innerText.trim() ?? null;
+          const group = rows[0]?.querySelector(".team-card-body-row_right__s9t1g")?.innerText.trim()?.split(" ")?.at(1) ?? "No group";
 
           const worldRanking = rows[1]?.querySelector(".team-card-body-row_right__s9t1g")?.innerText.trim() ?? null;
 

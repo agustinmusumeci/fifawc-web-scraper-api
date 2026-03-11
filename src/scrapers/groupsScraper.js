@@ -11,11 +11,11 @@ export default class GroupsScraper extends Scraper {
         const groups = [];
 
         tables.forEach((table) => {
-          const groupName = table.querySelector(".standings-table-head_text__NDynK")?.innerText.trim() ?? "Unknown Group";
+          const groupName = table.querySelector(".standings-table-head_text__NDynK")?.innerText.trim()?.split(" ")?.at(1) ?? "No Group";
 
           const rows = Array.from(table.querySelectorAll("tbody tr"));
 
-          if (!groupsNames.includes(groupName.split(" ").at(1).toLowerCase()) && groupsNames.length > 0) return;
+          if (!groupsNames.includes(groupName?.toLowerCase()) && groupsNames.length > 0) return;
 
           const teams = rows.map((row) => {
             const cells = row.querySelectorAll("td");

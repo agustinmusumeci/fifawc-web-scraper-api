@@ -123,7 +123,7 @@ npm start
 ```
 
 ```console
-/groups?dates=11/06/2026,12/06/2026...
+/matches?dates=11/06/2026,12/06/2026...
 ```
 
 - Get all stadiums

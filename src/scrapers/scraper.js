@@ -13,12 +13,12 @@ export default class Scraper {
     this.#selector = undefined;
   }
 
-  async scrape(url, selector, options = {}) {
-    await this.#open(url, selector);
+  async scrape(url, selector, options = {}, listener = "") {
+    const data = await this.open(url, selector, listener);
 
-    const result = await this.extract(options);
+    const result = await this.extract(options, data);
 
-    await this.#close();
+    await this.close();
 
     return result;
   }
@@ -28,18 +28,40 @@ export default class Scraper {
     throw new Error("extract() must be implemented");
   }
 
-  async #open(url, selector) {
+  async open(url, selector, listener = "") {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
     this.#page = page;
     this.#browser = browser;
+
     this.#url = url;
     this.#selector = selector;
 
-    await page.goto(url, { waitUntil: "networkidle0" });
+    const data = await this.navigate(url, selector, listener);
 
-    await page.waitForSelector(selector);
+    return data;
+  }
+
+  async navigate(url, selector, listener = "") {
+    let data = undefined;
+
+    if (listener) {
+      const responsePromise = this.#page.waitForResponse((res) => {
+        return res.url().includes(listener) && res.status() === 200;
+      });
+
+      await this.#page.goto(url, { waitUntil: "domcontentloaded" });
+
+      const response = await responsePromise;
+      data = await response?.json();
+    } else {
+      await this.#page.goto(url, { waitUntil: "domcontentloaded" });
+    }
+
+    await this.#page.waitForSelector(selector);
+
+    return data;
   }
 
   async evaluate(callback, ...args) {
@@ -48,8 +70,13 @@ export default class Scraper {
     return data;
   }
 
-  async #close() {
+  async close() {
     await this.#browser.close();
+
+    this.#page = undefined;
+    this.#browser = undefined;
+    this.#url = undefined;
+    this.#selector = undefined;
   }
 
   getPage() {

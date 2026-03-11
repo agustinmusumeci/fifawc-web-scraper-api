@@ -82,13 +82,13 @@ export default class MatchesScraper extends Scraper {
       link: `https://www.fifa.com/en/match-centre/match/${el?.IdCompetition}/${el?.IdSeason}/${el?.IdStage}/${el?.IdMatch}`,
       teams: [
         {
-          name: el?.Home?.Abbreviation ?? el?.PlaceHolderA,
-          short_name: el?.Home?.ShortClubName ?? el?.PlaceHolderA,
+          name: el?.Home?.ShortClubName ?? el?.PlaceHolderA,
+          short_name: el?.Home?.Abbreviation ?? el?.PlaceHolderA,
           goals: el?.HomeTeamScore ?? 0,
         },
         {
-          name: el?.Away?.Abbreviation ?? el?.PlaceHolderB,
-          short_name: el?.Away?.ShortClubName ?? el?.PlaceHolderB,
+          name: el?.Away?.ShortClubName ?? el?.PlaceHolderB,
+          short_name: el?.Away?.Abbreviation ?? el?.PlaceHolderB,
           goals: el?.AwayTeamScore ?? 0,
         },
       ],
